@@ -66,11 +66,11 @@ class NotifyHandler(webapp2.RequestHandler):
           'values': [
             {
               'displayName': 'Yes',
-              'iconUrl': '',
+              'iconUrl': 'glass_yes.png',
             },
             {
               'displayName': 'No',
-              'iconUrl': '',
+              'iconUrl': 'glass_no.png',
             }
           ]
         },
