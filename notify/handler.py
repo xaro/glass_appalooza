@@ -24,6 +24,7 @@ import webapp2
 
 from apiclient.http import MediaIoBaseUpload
 from oauth2client.appengine import StorageByKeyName
+from google.appengine.api import urlfetch
 
 from model import Credentials
 import util
@@ -49,8 +50,12 @@ class NotifyHandler(webapp2.RequestHandler):
   def _handle_locations_notification(self, data):
     """Handle locations notification."""
     location = self.mirror_service.locations().get(id=data['itemId']).execute()
-    text = 'New location is %s, %s' % (location.get('latitude'),
-                                       location.get('longitude'))
+
+    result = urlfetch.fetch("https://api.welcu.com/v1/listing/geolocate.json?lat=" + str(location.get('latitude')) + "&lng="+ str(location.get('longitude')))
+
+    if result.status_code == 200:
+      data = json.loads(result.content)
+      text = "Near event: " + data["data"][0]["name"]
     body = {
         'text': text,
         'location': location,
