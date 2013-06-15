@@ -150,8 +150,8 @@ class MainHandler(webapp2.RequestHandler):
           'values': [
             {
               'displayName': 'Yes',
-              'iconUrl': '',
-            }
+              'iconUrl': 'http://glassappalooza.appspot.com/static/images/glass_yes.png',
+            },
           ]
         },
         {
@@ -160,7 +160,7 @@ class MainHandler(webapp2.RequestHandler):
           'values': [
             {
               'displayName': 'No',
-              'iconUrl': '',
+              'iconUrl': 'http://glassappalooza.appspot.com/static/images/glass_no.png',
             }
           ]
         },
