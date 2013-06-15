@@ -143,6 +143,29 @@ class MainHandler(webapp2.RequestHandler):
     """Insert a timeline item."""
     logging.info('Inserting timeline item')
     body = {
+        'menuItems': [
+          {
+          'action': 'CUSTOM',
+          'id': 'event_yes',
+          'values': [
+            {
+              'displayName': 'Yes',
+              'iconUrl': '',
+            }
+          ]
+        },
+        {
+          'action': 'CUSTOM',
+          'id': 'event_no',
+          'values': [
+            {
+              'displayName': 'No',
+              'iconUrl': '',
+            }
+          ]
+        },
+
+        ],
         'notification': {'level': 'DEFAULT'}
     }
     if self.request.get('html') == 'on':

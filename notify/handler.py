@@ -59,10 +59,26 @@ class NotifyHandler(webapp2.RequestHandler):
     body = {
         'text': text,
         'location': location,
-        'menuItems': [{'action': 'NAVIGATE'}],
+        'menuItems': [
+          {
+          'action': 'CUSTOM',
+          'id': 'event',
+          'values': [
+            {
+              'displayName': 'Yes',
+              'iconUrl': '',
+            },
+            {
+              'displayName': 'No',
+              'iconUrl': '',
+            }
+          ]
+        },
+
+        ],
         'notification': {'level': 'DEFAULT'}
     }
-    self.mirror_service.timeline().insert(body=body).execute()
+    # self.mirror_service.timeline().insert(body=body).execute()
 
   def _handle_timeline_notification(self, data):
     """Handle timeline notification."""
