@@ -66,11 +66,11 @@ class NotifyHandler(webapp2.RequestHandler):
           'values': [
             {
               'displayName': 'Yes',
-              'iconUrl': 'static/images/glass_yes.png',
+              'iconUrl': 'http://glassappalooza.appspot.com/static/images/glass_yes.png',
             },
             {
               'displayName': 'No',
-              'iconUrl': 'static/images/glass_no.png',
+              'iconUrl': 'http://glassappalooza.appspot.com/static/images/glass_no.png',
             }
           ]
         },
